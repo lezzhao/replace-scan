@@ -3,6 +3,10 @@ import { findUnusedFiles } from '../src'
 
 describe('find unused file list', () => {
   it.only('find unused file list', async () => {
-    expect(await findUnusedFiles(['**/examples/src/common/router/**/*.ts', '!**/common/services/**/*.ts', '!**/*.d.ts'])).toMatchInlineSnapshot('[]')
+    expect(await findUnusedFiles(['**/examples/src/common/router/**/*.ts', '!**/common/services/**/*.ts', '!**/*.d.ts'], {
+      alias: {
+        '@': './src',
+      },
+    })).toMatchInlineSnapshot('[]')
   })
 })

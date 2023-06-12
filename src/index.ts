@@ -16,7 +16,8 @@ export async function transformContent(files: Target, rules: ReplaceRules, optio
   return code
 }
 
-export async function findUnusedFiles(files: Target) {
+export async function findUnusedFiles(files: Target, options: { alias?: { [key: string]: string } } = {}) {
+  const { alias } = options
   const globs = await fg(files, {
     dot: true,
     absolute: true,
@@ -37,7 +38,14 @@ export async function findUnusedFiles(files: Target) {
 
     if (matchs.length) {
       matchs.forEach(async (match) => {
-        const filePath = pathToFileURL(new URL(match[1], pathToFileURL(file).href).href).href
+        let transformPath = match[1]
+        if (alias) {
+          const key = Object.keys(alias).find(key => transformPath.startsWith(key))
+          if (key)
+            transformPath = transformPath.startsWith(key) ? transformPath.replace(key, alias[key]) : transformPath
+        }
+
+        const filePath = pathToFileURL(new URL(transformPath, pathToFileURL(file).href).href).href
 
         const finalPath = filePath.replace(extname(filePath), '')
         console.log(match[1], finalPath, 'skwmdwk')
