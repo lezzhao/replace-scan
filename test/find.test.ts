@@ -1,12 +1,84 @@
 import { describe, expect, it } from 'vitest'
-import { findUnusedFiles } from '../src'
+import { findUnusedFiles } from '../src/scan'
 
 describe('find unused file list', () => {
   it.only('find unused file list', async () => {
-    expect(await findUnusedFiles(['**/examples/src/common/router/**/*.ts', '!**/common/services/**/*.ts', '!**/*.d.ts'], {
+    expect(await findUnusedFiles(['**/examples/src/**/*.(ts|vue)', '!**/services/**/*.ts', '!**/*.d.ts'], {
       alias: {
         '@': './src',
       },
-    })).toMatchInlineSnapshot('[]')
+    })).toMatchInlineSnapshot(`
+      [
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/application/layout/default/defaultHeader/userNotify",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/application/useElementOverflow",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/application/useImmer",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/application/usePage",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/application/usePage1",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/application/useScrollFixed",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/components/IconPark",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/components/MultilineEllipsis",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/layout/default/PhoneHeader",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/locales/lang/en",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/locales/lang/zh-CN",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/router/guard/index",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/utils/constants/errCode",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/utils/enums/index",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/utils/http/interceptor",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/utils/lib/echarts",
+        "/Users/lezhao/EEO/replace-scan/examples/src/common/ws/index",
+        "/Users/lezhao/EEO/replace-scan/examples/src/course/application/eppt/index",
+        "/Users/lezhao/EEO/replace-scan/examples/src/course/application/useActivity",
+        "/Users/lezhao/EEO/replace-scan/examples/src/course/application/useAttach",
+        "/Users/lezhao/EEO/replace-scan/examples/src/course/application/useFileListUsage",
+        "/Users/lezhao/EEO/replace-scan/examples/src/course/components/detail/CourseStar",
+        "/Users/lezhao/EEO/replace-scan/examples/src/course/components/detail/courseCooper/InitialCooperAvatar",
+        "/Users/lezhao/EEO/replace-scan/examples/src/course/components/settings/CreateCourse",
+        "/Users/lezhao/EEO/replace-scan/examples/src/course/views/detail/ContributeDetail",
+        "/Users/lezhao/EEO/replace-scan/examples/src/home/views/BrandOld",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/application/contentDiff/storageKey",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/application/contentDiff/useScroll",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/application/useAccordant",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/application/useLmsDrag1",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/application/useLmsVisible",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/AddCourseContent",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/ClassinExamModal",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/DelActiveModal",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/DelUnitModal",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/LmsCloseWindow",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/LmsContent",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/ModalEdit",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/Search",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/activity/Attach/ClassinExam",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/compare/ContentDiffBlock",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/compare/DiffWords",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/compare/OwnerTag",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/compare/TitleBlock",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/compare/UnitBlock",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/compare/module/DiffResource",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/detailComparison/CompareManager",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/examContrast/DiffCategory",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/examContrast/ExamActivitiesDiff",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/lmsEdit/Input",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/lmsEdit/LmsCopyModal",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/lmsEdit/Wrapper",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/components/lmsEdit/index",
+        "/Users/lezhao/EEO/replace-scan/examples/src/lms/utils/unit",
+        "/Users/lezhao/EEO/replace-scan/examples/src/main",
+        "/Users/lezhao/EEO/replace-scan/examples/src/org/application/useOrgSetting",
+        "/Users/lezhao/EEO/replace-scan/examples/src/org/components/detail/OrgHeader",
+        "/Users/lezhao/EEO/replace-scan/examples/src/org/components/detail/OrgSide",
+        "/Users/lezhao/EEO/replace-scan/examples/src/org/components/members/ImportMember",
+        "/Users/lezhao/EEO/replace-scan/examples/src/org/components/members/MemberModal",
+        "/Users/lezhao/EEO/replace-scan/examples/src/org/components/members/UpdateMember",
+        "/Users/lezhao/EEO/replace-scan/examples/src/org/components/statistics/OrgStatistics",
+        "/Users/lezhao/EEO/replace-scan/examples/src/user/application/useUserPreferedTag",
+        "/Users/lezhao/EEO/replace-scan/examples/src/user/components/PreferredCourseType",
+        "/Users/lezhao/EEO/replace-scan/examples/src/user/components/SpacePayBagList",
+        "/Users/lezhao/EEO/replace-scan/examples/src/user/components/SpacePayPackage",
+        "/Users/lezhao/EEO/replace-scan/examples/src/user/components/SpacePayResult",
+        "/Users/lezhao/EEO/replace-scan/examples/src/user/components/SpacePayUnusual",
+        "/Users/lezhao/EEO/replace-scan/examples/src/user/components/UserSide",
+      ]
+    `)
   })
 })
