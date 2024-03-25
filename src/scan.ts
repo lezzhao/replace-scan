@@ -53,8 +53,6 @@ const scanContent = async (file: string, options: ScanOptions) => {
   const dynamicImportMatches = Array.from(code.matchAll(dynamicImportRE))
   const requireMatched = Array.from(code.matchAll(requireRE))
   const exportMatched = Array.from(code.matchAll(exporRE))
-  console.log((dynamicImportMatches))
-
   filter([importMatches, dynamicImportMatches, requireMatched, exportMatched], { ...options, file })
 }
 
